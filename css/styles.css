@@ -761,5 +761,30 @@ h1 {
 .modal-submit-btn:focus {
   background-color: #404bbf;
   border: none;
+}
+
+.modal-submit-btn:hover svg,
+.modal-submit-btn:focus svg {
   fill: #ffffff;
+}
+
+.input:focus {
+  border-color: #4d5ae5;
+}
+
+.input:focus + svg,
+.input:focus ~ svg {
+  fill: #4d5ae5;
+}
+
+textarea:focus {
+  border-color: #4d5ae5;
+}
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span {
+  background-color: var(
+    --accent-color
+  ); /* де :root { --accent-color: #404bbf; } */
+  border: none;
+  fill: var(--light-color); /* де :root { --light-color: #F4F4FD; } */
 }
