@@ -708,3 +708,61 @@ h1 {
 .form-submit-button:focus {
   background-color: #404bbf;
 }
+:root {
+  --ocean: #404bbf;
+  --iris: #4d5ae5;
+  --cloud: #f4f4fd;
+  --navyblue: #2e2f42;
+  --white: #ffffff;
+}
+
+/* Input focus styles */
+.modal-input:focus {
+  border-color: var(--iris);
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--iris);
+}
+
+/* Submit button hover/focus */
+.modal-submit-btn:hover,
+.modal-submit-btn:focus {
+  background-color: var(--ocean);
+  color: var(--white);
+}
+
+.modal-submit-btn:hover .modal-btn-icon,
+.modal-submit-btn:focus .modal-btn-icon {
+  fill: var(--white);
+}
+
+/* Checkbox styles */
+.modal-checkbox:checked + .modal-checkbox-icon {
+  background-color: var(--ocean);
+  border: none;
+  fill: var(--cloud);
+}
+
+.modal-checkbox:checked + .modal-checkbox-icon .checkbox-icon {
+  fill: var(--cloud);
+}
+
+/* Hover/focus on label affects span border */
+.modal-checkbox-label:hover .modal-checkbox-icon,
+.modal-checkbox-label:focus-within .modal-checkbox-icon {
+  border-color: var(--ocean);
+}
+
+/* Checkbox base styles */
+.modal-checkbox-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--navyblue);
+  border-radius: 2px;
+  transition: background-color 250ms, border 250ms, fill 250ms;
+  fill: transparent;
+}
