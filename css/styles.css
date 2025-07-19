@@ -760,4 +760,6 @@ h1 {
 .modal-submit-btn:hover,
 .modal-submit-btn:focus {
   fill: #ffffff;
+  background-color: #404bbf;
+  border: none;
 }
