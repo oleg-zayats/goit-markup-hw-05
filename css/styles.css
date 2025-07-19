@@ -561,7 +561,6 @@ h1 {
 .subscribe-icon {
   margin-left: 16px;
 }
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -569,208 +568,143 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
-
-.is-hidden {
-  opacity: 0;
+.backdrop.is-hidden {
   visibility: hidden;
+  opacity: 0;
   pointer-events: none;
 }
-
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
   width: 408px;
-  min-height: 584px;
-  background: #fcfcfc;
+  padding: 72px 24px 24px;
+  background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  transform: translate(-50%, -50%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 72px 24px 24px 24px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-.modal-close-btn {
+.modal-close-button {
   position: absolute;
   top: 24px;
   right: 24px;
   width: 24px;
   height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #e7e9fc;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-close-btn:hover,
-.modal-close-btn:focus {
-  background-color: #404bbf;
   border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
-
 .modal-close-icon {
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: #2e2f42;
+  transition: fill 250ms ease;
 }
-
-.modal-close-btn:hover .modal-close-icon,
-.modal-close-btn:focus .modal-close-icon {
+.modal-close-button:hover .modal-close-icon,
+.modal-close-button:focus .modal-close-icon {
   fill: #ffffff;
 }
-
 .modal-title {
-  font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
+  font-weight: 500;
   text-align: center;
-  letter-spacing: 0.02em;
-  color: var(--title-color, #2e2f42);
   margin-bottom: 16px;
 }
-
-.modal-form-field {
-  margin-bottom: 8px;
-}
-
-.modal-label {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--label-color, #8e8f99);
+.form-label {
   display: block;
   margin-bottom: 4px;
 }
-
-.modal-input-wrapper {
+.input-wrapper {
   position: relative;
 }
-
-.modal-checkbox {
+.form-input {
   width: 100%;
-  height: 40px;
+  padding: 8px 38px 8px 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
-  padding-left: 38px;
-  outline: transparent;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms ease;
 }
-
-:root {
-  --accent-color: #404bbf;
-  --icon-color: #f4f4fd;
-}
-
-.modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-custom {
-  background-color: var(--accent-color);
-  border: none;
-  fill: var(--icon-color);
-}
-
-.modal-checkbox:focus {
+.form-input:focus {
   border-color: #4d5ae5;
 }
-
-.modal-input-icon {
+.input-icon {
   position: absolute;
-  left: 16px;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #2e2f42;
+  transition: fill 250ms ease;
 }
-
-.modal-checkbox:focus + .modal-input-icon {
+.form-input:focus + .input-icon {
   fill: #4d5ae5;
 }
-
-.modal-form-comment {
-  margin-bottom: 16px;
-}
-
-.modal-textarea {
+.form-textarea {
   width: 100%;
-  height: 120px;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: rgba(46, 47, 66, 0.4);
+  padding: 8px 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
-  background-color: transparent;
-  padding: 8px 16px;
-  outline: transparent;
   resize: none;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms ease;
 }
-
-.modal-textarea:focus {
+.form-textarea:focus {
   border-color: #4d5ae5;
 }
-
-.modal-checkbox-wrapper {
+.checkbox-wrapper {
   margin-bottom: 24px;
 }
-
-.modal-checkbox-label {
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--label-color, #8e8f99);
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
-
-.modal-checkbox-custom {
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+.custom-checkbox {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  fill: transparent;
   margin-right: 8px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 250ms ease;
+  fill: transparent;
 }
-
-.modal-checkbox:checked + .modal-checkbox-label .modal-checkbox-custom {
+.checkbox-input:checked + .checkbox-label .custom-checkbox {
   background-color: #404bbf;
   border: none;
-  fill: #f4f4fd;
+  fill: #ffffff;
 }
-
-.modal-policy-link {
+.policy-link {
   color: #4d5ae5;
 }
-
-.modal-submit-btn {
+.form-submit-button {
   display: block;
   min-width: 169px;
   height: 56px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  margin: 0 auto;
+  padding: 16px 32px;
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  cursor: pointer;
+  font-size: 16px;
   background-color: #4d5ae5;
+  color: #ffffff;
   border: none;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 250ms ease;
 }
-
-.modal-submit-btn:hover,
-.modal-submit-btn:focus {
-  fill: #ffffff;
+.form-submit-button:hover,
+.form-submit-button:focus {
   background-color: #404bbf;
-  border: none;
 }
